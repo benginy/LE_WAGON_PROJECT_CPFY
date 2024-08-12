@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_131720) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_12_141148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "life_moment_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "booking_duration"
+    t.decimal "booking_cost"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["life_moment_id"], name: "index_bookings_on_life_moment_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "life_moments", force: :cascade do |t|
+    t.string "title"
+    t.string "image_url"
+    t.decimal "price_per_night"
+    t.string "description"
+    t.decimal "rating"
+    t.boolean "availability"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_life_moments_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +58,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_131720) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "profile_picture_url"
+    t.text "bio"
+    t.decimal "rating"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "life_moments"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "life_moments", "users"
+  add_foreign_key "reviews", "bookings"
 end
