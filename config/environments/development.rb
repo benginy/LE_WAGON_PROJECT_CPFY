@@ -73,4 +73,10 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Ce que j'ai du rajouter à la main au moment de config devise
+
+  config.action_mailer.default_url_options = { host: 'https://airbnb-benginy-b5a5c38f387e.herokuapp.com/', port: 3000 }
+
+
 end
