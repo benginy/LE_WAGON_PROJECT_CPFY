@@ -1,5 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :booking
+  has_one :life_moment, through: :booking
+  belongs_to :user, through: :booking
 
   # Validations
   validates :rating, presence: true
