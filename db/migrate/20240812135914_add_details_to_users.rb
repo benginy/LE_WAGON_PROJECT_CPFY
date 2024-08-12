@@ -1,0 +1,8 @@
+class AddDetailsToUsers < ActiveRecord::Migration[7.1]
+  def change
+    add_column :users, :username, :string
+    add_column :users, :profile_picture_url, :string
+    add_column :users, :bio, :text
+    add_column :users, :rating, :decimal
+  end
+end
