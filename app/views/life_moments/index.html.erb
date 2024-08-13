@@ -1,29 +1,3 @@
-  <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container bg-light">
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav" >
-      <a class="navbar-brand" href="#">Silly Life Adventures</a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <strong><%= link_to 'Publish New Life Moment', new_life_moment_path, class: 'nav-link' %></strong>
-        </li>
-      </ul>
-    </div>
-
-    <div class="user-space m-3">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <span class="navbar-text">Welcome, <%= current_user.username %></span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
-</nav>
-
-
   <!-- Search Bar Partial -->
   <%= render 'search_bar' %>
 
@@ -45,7 +19,7 @@
                 </h2>
               </div>
               <h2 class="card-life-moment-pricing">
-                <%= number_to_currency(life_moment.price_per_night, unit: '£') %> per night
+                <%= number_to_currency(life_moment.price_per_night, unit: '$') %> per night
               </h2>
               <%= cl_image_tag 'placeholder-avatar.png', class: 'card-life-moment-user avatar-bordered' %> <!-- Placeholder for user image -->
             </div>
