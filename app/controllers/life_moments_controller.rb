@@ -50,6 +50,6 @@ class LifeMomentsController < ApplicationController
   end
 
   def life_moment_params
-    params.require(:life_moment).permit(:title, :description, :price, :availability, :image_url, :user_id)
+    params.require(:life_moment).permit(:title, :description, :price_per_night, :availability, :image_url, :user_id, :photo)
   end
 end

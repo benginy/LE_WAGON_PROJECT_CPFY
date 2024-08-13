@@ -1,2 +1,45 @@
-<h1>LifeMoments#show</h1>
-<p>Find me in app/views/life_moments/show.html.erb</p>
+<div class="container mt-5 life-moment-show-page">
+  <h5 class="mb-4">Details for <%= @life_moment.title %></h5>
+
+  <div class="row">
+    <!-- Card Section -->
+    <div class="col-md-8">
+      <div class="card-life-show">
+        <% if @life_moment.photo.attached? %>
+          <%= cl_image_tag @life_moment.photo.key, class: 'card-life-show-img' %>
+        <% end %>
+        <div class="card-life-show-infos">
+          <div>
+            <h2 class="card-life-show-title">
+              <%= @life_moment.title %>
+            </h2>
+            <p><%= @life_moment.description %></p>
+          </div>
+          <h2 class="card-life-show-pricing">
+            <%= number_to_currency(@life_moment.price_per_night, unit: '£') %> per night
+          </h2>
+          <%= cl_image_tag 'placeholder-avatar.png', class: 'card-life-show-user avatar-bordered' %> <!-- Placeholder for user image -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form Section -->
+    <div class="col-md-4">
+      <div class="booking-form">
+        <h4 class="mb-3">Book This Life Moment</h4>
+        <%= form_with(model: [@life_moment, @life_moment.bookings.build], local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :start_date, 'Start Date' %>
+            <%= form.date_field :start_date, class: 'form-control' %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :end_date, 'End Date' %>
+            <%= form.date_field :end_date, class: 'form-control' %>
+          </div>
+          <%= form.hidden_field :life_moment_id, value: @life_moment.id %>
+          <%= form.submit 'Book Now', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

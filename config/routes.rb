@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/update'
-  get 'bookings/accept'
-  get 'bookings/decline'
-  get 'life_moments/index'
-  get 'life_moments/show'
-  get 'life_moments/new'
-  get 'life_moments/create'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

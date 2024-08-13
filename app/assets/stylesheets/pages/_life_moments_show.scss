@@ -1,0 +1,61 @@
+/* Apply styles only when within the life-moment-show-page container */
+.life-moment-show-page {
+  .card-life-show {
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Adjust as needed */
+  }
+
+  .card-life-show-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /* Adjusts the image size to fit the container */
+  }
+
+  .card-life-show h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-life-show p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .card-life-show .card-life-show-infos {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 200px); /* Ensures content fills the remaining space */
+    position: relative;
+  }
+
+  .card-life-show-infos .card-life-show-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .booking-form {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .booking-form .form-control {
+    margin-bottom: 10px;
+  }
+
+  .booking-form .btn {
+    width: 100%;
+  }
+}

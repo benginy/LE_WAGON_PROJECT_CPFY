@@ -1,0 +1,8 @@
+<%= simple_form_for(@life_moment, html: { multipart: true }) do |f| %>
+  <%= f.input :title, label: 'Title' %>
+  <%= f.input :price_per_night, label: 'Price per Night', input_html: { step: 0.01 } %>
+  <%= f.input :description, label: 'Description', as: :text %>
+  <%= f.input :photo, label: "Attach a Photo Illustrating the moment you're renting", as: :file %>
+
+  <%= f.button :submit, 'Publish Offer' %>
+<% end %>
