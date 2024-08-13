@@ -1,4 +1,4 @@
-<div class="container dashboard-page mt-5">
+<div class="container dashboard-page mt-5 shadow-sm p-3">
   <div class="row">
     <!-- Bookings Made Section -->
     <div class="col-md-4">
@@ -11,14 +11,12 @@
             <ul class="list-group">
               <% @bookings_made.each do |booking| %>
                 <li class="list-group-item dashboard-booking-card">
-                  <div class="d-flex">
-                    <div class="dashboard-booking-card-img-container">
-                      <%= cl_image_tag booking.life_moment.photo.key, class: 'dashboard-booking-card-img', alt: booking.life_moment.title %>
-                    </div>
-                    <div class="w-75 p-2">
-                      <h5 class="dashboard-booking-card-title">
+                  <div class="card-product">
+                    <img src="<%= cl_image_path booking.life_moment.photo.key %>" alt="<%= booking.life_moment.title %>" class="dashboard-booking-card-img"/>
+                    <div class="card-product-infos">
+                      <h2 class="dashboard-booking-card-title">
                         <%= link_to booking.life_moment.title, life_moment_path(booking.life_moment) %>
-                      </h5>
+                      </h2>
                       <% if booking.start_date.present? && booking.end_date.present? %>
                         <p>Booked from <%= booking.start_date.strftime('%B %d, %Y') %> to <%= booking.end_date.strftime('%B %d, %Y') %></p>
                       <% else %>
@@ -48,14 +46,12 @@
             <ul class="list-group">
               <% @bookings_sold.each do |booking| %>
                 <li class="list-group-item dashboard-booking-card">
-                  <div class="d-flex">
-                    <div class="dashboard-booking-card-img-container">
-                      <%= cl_image_tag booking.life_moment.photo.key, class: 'dashboard-booking-card-img', alt: booking.life_moment.title %>
-                    </div>
-                    <div class="w-75 p-2">
-                      <h5 class="dashboard-booking-card-title">
+                  <div class="card-product">
+                    <img src="<%= cl_image_path booking.life_moment.photo.key %>" alt="<%= booking.life_moment.title %>" class="dashboard-booking-card-img"/>
+                    <div class="card-product-infos">
+                      <h2 class="dashboard-booking-card-title">
                         <%= link_to booking.life_moment.title, life_moment_path(booking.life_moment) %>
-                      </h5>
+                      </h2>
                       <% if booking.start_date.present? && booking.end_date.present? %>
                         <p>Booked from <%= booking.start_date.strftime('%B %d, %Y') %> to <%= booking.end_date.strftime('%B %d, %Y') %></p>
                       <% else %>
@@ -85,14 +81,12 @@
             <ul class="list-group">
               <% @published_life_moments.each do |life_moment| %>
                 <li class="list-group-item dashboard-life-moment-card">
-                  <div class="d-flex">
-                    <div class="dashboard-life-moment-card-img-container">
-                      <%= cl_image_tag life_moment.photo.key, class: 'dashboard-life-moment-card-img', alt: life_moment.title %>
-                    </div>
-                    <div class="w-75 p-2">
-                      <h5 class="dashboard-life-moment-card-title">
+                  <div class="card-product">
+                    <img src="<%= cl_image_path life_moment.photo.key %>" alt="<%= life_moment.title %>" class="dashboard-life-moment-card-img"/>
+                    <div class="card-product-infos">
+                      <h2 class="dashboard-life-moment-card-title">
                         <%= link_to life_moment.title, life_moment_path(life_moment) %>
-                      </h5>
+                      </h2>
                       <p><%= life_moment.description.truncate(100) %></p>
                     </div>
                   </div>

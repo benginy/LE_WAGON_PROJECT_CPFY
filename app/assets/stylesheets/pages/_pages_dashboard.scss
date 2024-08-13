@@ -3,7 +3,6 @@
   .dashboard-page-card-bookings,
   .dashboard-page-card-life-moments {
     border-radius: 10px;
-    background-color: white;
   }
 
   .dashboard-page-card-bookings-header,
@@ -13,10 +12,9 @@
     font-weight: bold;
     padding: 1rem;
     text-align: center;
-    background-color: navy;
-    color: white;
+    // background-color: navy; /* Add color for header */
+    // color: white; /* White text color */
     border-radius: 5px;
-    font-weight: bold;
     justify-content: center;
   }
 
@@ -27,7 +25,7 @@
 
   .list-group-item {
     border: none;
-    padding: 1rem;
+    padding: 0;
   }
 
   .list-group-item h6 {
@@ -44,64 +42,48 @@
     font-size: 0.875rem;
   }
 
-  /* Dashboard Booking Card Styles */
-  .dashboard-booking-card {
+  .card-product {
+    overflow: hidden;
+    height: 130px; /* Consistent height */
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Modern shadow */
     display: flex;
-    align-items: center; /* Vertically centers the items */
+    align-items: center;
+    border-radius: 8px; /* Rounded corners */
     margin-bottom: 1rem;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
   }
 
-  .dashboard-booking-card-img-container {
-    width: 1/3; /* Adjust the width as needed */
-    display: flex;
-    align-items: center; /* Vertically centers the image within the container */
-    justify-content: center; /* Horizontally centers the image within the container */
+  .card-product img {
+    height: 80px;
+    width: 80px; /* Fixed width */
+    object-fit: cover;
   }
 
-  .dashboard-booking-card-img {
-    width: 100px; /* Adjust the width as needed */
-    height: 75px; /* Adjust the height as needed */
-    object-fit: cover; /* Ensures the image covers the container without distortion */
-    border-radius: 5px;
+  .card-product-infos {
+    padding: 16px;
   }
 
-  .dashboard-booking-card-title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  .card-product h2 {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: bold;
+    margin: 0;
   }
 
-  /* Dashboard Life Moment Card Styles */
-  .dashboard-life-moment-card {
-    display: flex;
-    align-items: center; /* Vertically centers the items */
-    margin-bottom: 1rem;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    height: 130px;
+  .card-product p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    opacity: 0.7;
+    margin-bottom: 0;
+    margin-top: 8px;
   }
 
-  .dashboard-booking-card {
-    height: 130px; /* Set your desired max height here */
+  .card-product a:hover {
+    color: #555 !important; /* Optional: Darker color on hover */
+    text-decoration: underline !important; /* Optional: underline on hover */
   }
 
-  .dashboard-life-moment-card-img-container {
-    width: 1/3; /* Adjust the width as needed */
-    display: flex;
-    align-items: center; /* Vertically centers the image within the container */
-    justify-content: center; /* Horizontally centers the image within the container */
-  }
-
-  .dashboard-life-moment-card-img {
-    width: 100px; /* Adjust the width as needed */
-    height: 75px; /* Adjust the height as needed */
-    object-fit: cover; /* Ensures the image covers the container without distortion */
-    border-radius: 5px;
-  }
-
-  .dashboard-life-moment-card-title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  .text-style-d-none {
+    display: none !important; /* Hides the text if this class is applied */
+    color: black;
   }
 }
