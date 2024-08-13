@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # Gérer les bookings
   # resources :bookings, only: [:index, :update]
-  resources :bookings, only: [:index, :show, :update] do
+  resources :bookings, only: [:index, :show, :create, :update] do
     member do
       patch :accept
       patch :decline

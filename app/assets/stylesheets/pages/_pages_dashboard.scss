@@ -1,0 +1,89 @@
+/* Dashboard Page Styling */
+.dashboard-page {
+  .dashboard-page-card-bookings,
+  .dashboard-page-card-life-moments {
+    border-radius: 10px;
+  }
+
+  .dashboard-page-card-bookings-header,
+  .dashboard-page-card-life-moments-header {
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+    // background-color: navy; /* Add color for header */
+    // color: white; /* White text color */
+    border-radius: 5px;
+    justify-content: center;
+  }
+
+  .dashboard-page-card-bookings-body,
+  .dashboard-page-card-life-moments-body {
+    padding: 1.5rem;
+  }
+
+  .list-group-item {
+    border: none;
+    padding: 0;
+  }
+
+  .list-group-item h6 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .list-group-item p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+  }
+
+  .list-group-item .badge {
+    font-size: 0.875rem;
+  }
+
+  .card-product {
+    overflow: hidden;
+    height: 130px; /* Consistent height */
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Modern shadow */
+    display: flex;
+    align-items: center;
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 1rem;
+  }
+
+  .card-product img {
+    height: 80px;
+    width: 80px; /* Fixed width */
+    object-fit: cover;
+  }
+
+  .card-product-infos {
+    padding: 16px;
+  }
+
+  .card-product h2 {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-product p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    opacity: 0.7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .card-product a:hover {
+    color: #555 !important; /* Optional: Darker color on hover */
+    text-decoration: underline !important; /* Optional: underline on hover */
+  }
+
+  .text-style-d-none {
+    display: none !important; /* Hides the text if this class is applied */
+    color: black;
+  }
+}

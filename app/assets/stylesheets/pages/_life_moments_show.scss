@@ -1,61 +1,96 @@
-/* Apply styles only when within the life-moment-show-page container */
+/* General container styling */
 .life-moment-show-page {
+  margin-top: 5rem;
+
+  .navbar {
+    background-color: #f8f9fa;
+    margin-bottom: 2rem;
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-nav {
+      .nav-item {
+        .navbar-text {
+          font-size: 1.2rem; /* Increase font size for the username */
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
   .card-life-show {
-    overflow: hidden;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Adjust as needed */
+    overflow: hidden;
+    height: 450px; /* Increase height for better visual balance */
+    margin-bottom: 1.5rem;
+
+    &-img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover; /* Ensures the image doesn't zoom too much */
+    }
+
+    &-infos {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 1.5rem; /* Increased font size */
+        font-weight: bold;
+        margin: 0 0 10px 0;
+      }
+
+      p {
+        font-size: 1rem;
+        opacity: 0.7;
+        margin: 0 0 10px 0;
+      }
+
+      h3 {
+        font-size: 1.3rem; /* Increased font size for the price */
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+    }
   }
 
-  .card-life-show-img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover; /* Adjusts the image size to fit the container */
-  }
-
-  .card-life-show h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .card-life-show p {
-    font-size: 12px;
-    opacity: .7;
-    margin: 0;
-  }
-
-  .card-life-show .card-life-show-infos {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100% - 200px); /* Ensures content fills the remaining space */
-    position: relative;
-  }
-
-  .card-life-show-infos .card-life-show-user {
-    position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
-    border-radius: 50%;
-  }
-
-  .booking-form {
+  /* Styling for the booking form */
+  .card-life-show-form {
+    padding: 2rem;
     background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    height: 450px; /* Same height as the card for visual balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the form vertically */
 
-  .booking-form .form-control {
-    margin-bottom: 10px;
-  }
+    .form-group {
+      margin-bottom: 30px; /* Increase space between inputs */
 
-  .booking-form .btn {
-    width: 100%;
+      label {
+        font-size: 1.2rem; /* Increase label size */
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        font-size: 1.2rem; /* Increase input text size */
+        padding: 10px; /* Increase input padding */
+      }
+    }
+
+    .btn {
+      font-size: 1.2rem; /* Increase button text size */
+      padding: 12px; /* Increase button padding */
+      margin-top: 30px; /* Increase space between the last input and the button */
+      width: 100%;
+    }
   }
 }
