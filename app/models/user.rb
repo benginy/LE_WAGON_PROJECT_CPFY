@@ -15,6 +15,6 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     # validates :profile_picture_url, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }
     validates :bio, length: { maximum: 500 }
-    validates :rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+    # validates :rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
 end

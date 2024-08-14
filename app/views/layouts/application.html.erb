@@ -8,55 +8,70 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-      <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container bg-light">
-    <!-- Navbar Content -->
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
-      <!-- Brand Name -->
-      <a class="navbar-brand" href="<%= life_moments_path %>">Silly Life Adventures CORP</a>
+<!-- Navigation Bar -->
+<div class="main-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light p-2 ps-4 pe-4">
+    <div class="container">
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+        <!-- Brand Logo -->
+        <a class="navbar-brand" href="<%= life_moments_path %>">
+          <%= image_tag 'logo.png', alt: "Silly Life Adventures CORP", style: "height: 70px;" %>
+        </a>
 
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <!-- Dashboard Link -->
-          <li class="nav-item">
-            <strong><%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %></strong>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <strong><%= link_to 'Publish New Life Moment', new_life_moment_path, class: 'nav-link' %></strong>
-        </li>
-      </ul>
-    </div>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <!-- Dashboard Link -->
+            <li class="nav-item">
+              <strong><%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %></strong>
+            </li>
+            <li class="nav-item">
+              <strong><%= link_to 'Publish Moment', new_life_moment_path, class: 'nav-link' %></strong>
+            </li>
+          <% else %>
+            <!-- Sign In and Sign Up Links -->
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary me-2' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-    <!-- User Space -->
-    <div class="user-space m-3">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <!-- Welcome Message -->
-          <li class="nav-item">
-           <strong><span class="navbar-text">Welcome <%= current_user.username %></span></strong> 
-          </li>
-        <% else %>
-          <!-- Sign In and Sign Up Links -->
-          <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary me-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
-          </li>
-        <% end %>
-      </ul>
+      <!-- User Space -->
+      <div class="user-space m-3">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <!-- Welcome Message -->
+            <li class="nav-item">
+              <strong><%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-secondary nav-link' %></strong>
+            </li>
+            <!-- Disconnect Link -->
+            <li class="nav-item">
+            <strong><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}, class: 'btn btn-danger nav-link' %></strong>
+            </li>
+          <% else %>
+            <!-- If not signed in, links are shown above in the nav section -->
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+
 
     <%= yield %>
   </body>
