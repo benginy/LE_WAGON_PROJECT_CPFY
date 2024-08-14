@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 450px; /* Increase height for better visual balance */
+    height: 500px; /* Increase height for better visual balance */
     margin-bottom: 1.5rem;
 
     &-img {
@@ -67,7 +67,7 @@
     padding: 2rem;
     background: #f8f9fa;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    height: 450px; /* Same height as the card for visual balance */
+    height: 500px; /* Same height as the card for visual balance */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center the form vertically */
