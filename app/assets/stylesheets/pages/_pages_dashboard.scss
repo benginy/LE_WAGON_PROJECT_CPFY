@@ -50,13 +50,17 @@
 
   .card-product {
     overflow: hidden;
-    height: 130px; /* Consistent height */
+    height: 140px; /* Consistent height */
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Modern shadow */
     display: flex;
     align-items: center;
     border-radius: 8px; /* Rounded corners */
     margin-bottom: 1rem;
+  }
+
+  .card-product:hover {
+    box-shadow: none;
   }
 
   .card-product img {
