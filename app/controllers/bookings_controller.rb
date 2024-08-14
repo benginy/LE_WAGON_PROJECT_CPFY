@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  # before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -20,11 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
-      redirect_to dashboard_path, notice: 'Booking updated successfully'
-    else
-      render :edit, alert: 'Failed to update booking.'
-    end
+    redirect_to dashboard_path, notice: 'Booking updated successfully'
   end
 
   def accept
@@ -34,7 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
+    @booking.
     redirect_to dashboard_path, alert: 'Booking deleted successfully'
   end
 
@@ -45,6 +41,6 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking
   end
 end
