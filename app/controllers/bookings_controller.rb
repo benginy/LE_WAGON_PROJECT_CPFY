@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking.update(booking_params)
     redirect_to dashboard_path, notice: 'Booking updated successfully'
   end
 
@@ -30,7 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.
+    @booking.destroy
     redirect_to dashboard_path, alert: 'Booking deleted successfully'
   end
 
