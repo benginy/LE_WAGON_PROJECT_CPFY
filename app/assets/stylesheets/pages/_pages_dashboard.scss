@@ -1,5 +1,10 @@
 /* Dashboard Page Styling */
 .dashboard-page {
+
+  .container {
+    background-color: #f8f9fa;
+  }
+
   .dashboard-page-card-bookings,
   .dashboard-page-card-life-moments {
     border-radius: 10px;
@@ -16,6 +21,7 @@
     // color: white; /* White text color */
     border-radius: 5px;
     justify-content: center;
+    color: black;
   }
 
   .dashboard-page-card-bookings-body,
@@ -54,8 +60,8 @@
   }
 
   .card-product img {
-    height: 80px;
-    width: 80px; /* Fixed width */
+    height: 100px;
+    width: 90px; /* Fixed width */
     object-fit: cover;
   }
 
@@ -86,4 +92,14 @@
     display: none !important; /* Hides the text if this class is applied */
     color: black;
   }
+
+  .dashboard-page-card-life-moments-header i {
+    margin-right: 10px; // Add space between the icon and the text
+  }
+
+  .dashboard-page-card-bookings-header i {
+    margin-right: 10px; // Add space between the icon and the text
+
+  }
+
 }
