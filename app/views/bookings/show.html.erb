@@ -18,7 +18,7 @@
         <!-- Life Moment Details -->
         <div class="col-md-8">
           <div class="card-life-moment">
-            <%= image_tag @booking.life_moment.photo.url, class: 'card-life-moment-img' %>
+            <%= cl_image_tag @booking.life_moment.photo.key, class: 'card-life-moment-img' %>
             <div class="card-life-moment-infos">
               <h2 class="card-life-moment-title"><%= link_to @booking.life_moment.title, life_moment_path(@booking.life_moment), style: "color: black; text-decoration: none;" %></h2>
               <h6><%= @booking.life_moment.description %></h6>
