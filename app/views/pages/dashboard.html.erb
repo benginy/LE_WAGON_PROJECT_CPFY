@@ -79,35 +79,36 @@
       </div>
 
 
-      <!-- Published Life Moments Section -->
-      <div class="col-md-4">
-        <div class="dashboard-page-card-life-moments">
-          <div class="dashboard-page-card-life-moments-header">
-            <h4><i class="fa-solid fa-person"></i> Published Life Moments</h4>
-          </div>
-          <div class="dashboard-page-card-life-moments-body">
-            <% if @published_life_moments.any? %>
-              <ul class="list-group">
-                <% @published_life_moments.each do |life_moment| %>
-                  <li class="list-group-item dashboard-life-moment-card">
-                    <div class="card-product">
-                      <img src="<%= cl_image_path life_moment.photo.key %>" alt="<%= life_moment.title %>" class="dashboard-life-moment-card-img"/>
-                      <div class="card-product-infos">
-                        <h2 class="dashboard-life-moment-card-title">
-                          <%= link_to life_moment.title, life_moment_path(life_moment), class:"text-decoration-none text-black" %>
-                        </h2>
-                        <p><%= life_moment.description.truncate(100) %></p>
-                      </div>
-                    </div>
-                  </li>
+<!-- Published Life Moments Section -->
+<div class="col-md-4">
+  <div class="dashboard-page-card-life-moments">
+    <div class="dashboard-page-card-life-moments-header">
+      <h4><i class="fa-solid fa-person"></i> Published Life Moments</h4>
+    </div>
+    <div class="dashboard-page-card-life-moments-body">
+      <% if @published_life_moments.any? %>
+        <ul class="list-group">
+          <% @published_life_moments.each do |life_moment| %>
+            <li class="list-group-item dashboard-life-moment-card">
+              <div class="card-product">
+                <% if life_moment.photo.attached? %>
+                  <%= cl_image_tag life_moment.photo.key, class: 'dashboard-life-moment-card-img', alt: life_moment.title %>
+                <% else %>
+                  <img src="path/to/default-image.jpg" alt="Default Image" class="dashboard-life-moment-card-img" />
                 <% end %>
-              </ul>
-            <% else %>
-              <p>No life moments published yet.</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
+                <div class="card-product-infos">
+                  <h2 class="dashboard-life-moment-card-title">
+                    <%= link_to life_moment.title, life_moment_path(life_moment), class:"text-decoration-none text-black" %>
+                  </h2>
+                  <p><%= life_moment.description.truncate(100) %></p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No life moments published yet.</p>
+      <% end %>
     </div>
   </div>
 </div>
