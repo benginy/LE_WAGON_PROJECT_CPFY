@@ -61,6 +61,7 @@
 
   .card-product:hover {
     box-shadow: none;
+    transition: 0.2s;
   }
 
   .card-product img {
@@ -88,8 +89,8 @@
   }
 
   .card-product a:hover {
-    color: #555 !important; /* Optional: Darker color on hover */
-    text-decoration: underline !important; /* Optional: underline on hover */
+    color: #555 ; /* Optional: Darker color on hover */
+    text-decoration: none; /* Optional: underline on hover */
   }
 
   .text-style-d-none {
