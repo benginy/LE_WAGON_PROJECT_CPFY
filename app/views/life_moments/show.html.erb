@@ -3,7 +3,7 @@
     <!-- Left side: Life Moment Card (2/3 of the page) -->
     <div class="col-md-8">
       <div class="card-life-show">
-        <%= image_tag @life_moment.photo.url, class: 'card-life-show-img' %>
+        <%= cl_image_tag @life_moment.photo.key, class: 'card-life-show-img' %>
         <div class="card-life-show-infos">
           <h2><%= @life_moment.title %></h2>
 
