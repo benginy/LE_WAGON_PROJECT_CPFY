@@ -1,25 +1,23 @@
 <div class="d-flex justify-content-center p-4" style="border-bottom: 1px solid #dcdcdc; background-color: #f0f0f0;">
   <div class="mt-4">
-    <form class="form-inline d-flex">
+    <%= simple_form_for :search, url: life_moments_path, method: :get, html: { class: "form-inline d-flex" } do |f| %>
       <!-- Keyword Input -->
-      <%# <div class="form-group mr-4 m-1">
-        <input class="form-control form-control-sm" type="search" placeholder="Keyword" aria-label="Keyword">
-      </div> %>
       <div class="form-group mr-4 m-1">
         <%= text_field_tag :query, params[:query], class: "form-control form-control-sm", placeholder: "Keyword", aria: { label: "Keyword" } %>
       </div>
 
-
       <!-- Date Inputs -->
       <div class="form-group mr-2 m-1">
-        <input class="form-control form-control-sm" type="text" placeholder="Check-in Date" aria-label="Check-in Date">
+        <%= f.date_field :check_in_date, class: 'form-control form-control-sm', placeholder: "Check-in Date" %>
       </div>
       <div class="form-group mr-2 m-1">
-        <input class="form-control form-control-sm" type="text" placeholder="Check-out Date" aria-label="Check-out Date">
+        <%= f.date_field :check_out_date, class: 'form-control form-control-sm', placeholder: "Check-out Date" %>
       </div>
 
       <!-- Search Button -->
-      <button class="btn btn-primary" type="submit">Search</button>
-    </form>
+      <div class="form-group mr-2 m-1">
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>

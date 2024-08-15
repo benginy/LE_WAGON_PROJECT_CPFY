@@ -1,0 +1,44 @@
+.booking-show-page {
+  .card-life-moment {
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Set a fixed height for consistent card size */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    text-decoration: none; /* Ensure no underline or text decoration */
+  }
+
+  .card-life-moment:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.3); /* Slightly increased shadow on hover */
+  }
+
+  .card-life-moment-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /* Adjusts the image size to fit the container */
+  }
+
+  .card-life-moment-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+
+  .card-life-moment-pricing {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .card-life-moment-infos {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 200px); /* Ensures content fills the remaining space */
+  }
+
+}
