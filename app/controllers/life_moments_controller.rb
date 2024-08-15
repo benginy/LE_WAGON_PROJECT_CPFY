@@ -12,6 +12,7 @@ class LifeMomentsController < ApplicationController
 
   def show
     @booking = Booking.new
+    calculate_average_rating
   end
 
   def new
@@ -70,5 +71,11 @@ class LifeMomentsController < ApplicationController
 
   def life_moment_params
     params.require(:life_moment).permit(:title, :description, :price_per_night, :availability, :image_url, :user_id, :photo)
+  end
+
+  def calculate_average_rating
+    set_life_moment
+    ratings = @life_moment.bookings.joins(:review).pluck('reviews.rating')
+    @average_rating = ratings.sum.to_f / ratings.size if ratings.any?
   end
 end
