@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_155938) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_15_092338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_155938) do
     t.date "end_date"
     t.integer "booking_duration"
     t.decimal "booking_cost"
-    t.string "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["life_moment_id"], name: "index_bookings_on_life_moment_id"
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_155938) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.integer "status", default: 0
     t.index ["user_id"], name: "index_life_moments_on_user_id"
   end
 

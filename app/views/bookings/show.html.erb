@@ -1,2 +1,71 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="booking-show-page">
+  <div class="container mt-5 booking-show-page">
+    <% if @role == 'seller' %>
+      <!-- Seller's View -->
+      <h2>Upcoming booking reserved by <%= @booking.user.username %></h2>
+    <% elsif @role == 'buyer' %>
+      <!-- Buyer's View -->
+      <h2>Your booking from <%= @booking.start_date.strftime('%B %d, %Y') %> to <%= @booking.end_date.strftime('%B %d, %Y') %></h2>
+    <% else %>
+      <!-- Unauthorized View -->
+      <div class="alert alert-warning">
+        <p>You cannot view this booking because you are neither the owner nor the buyer of this Life Moment.</p>
+      </div>
+    <% end %>
+
+    <% if @role != 'unauthorized' %>
+      <div class="row mt-4">
+        <!-- Life Moment Details -->
+        <div class="col-md-8">
+          <div class="card-life-moment">
+            <%= image_tag @booking.life_moment.photo.url, class: 'card-life-moment-img' %>
+            <div class="card-life-moment-infos">
+              <h2 class="card-life-moment-title"><%= @booking.life_moment.title %></h2>
+              <p><%= @booking.life_moment.description %></p>
+              <h3 class="card-life-moment-pricing"><%= number_to_currency(@booking.life_moment.price_per_night) %> per night</h3>
+            </div>
+          </div>
+        </div>
+
+        <% if @role == 'buyer' %>
+          <!-- Review Form -->
+          <div class="col-md-4">
+            <div class="card p-3">
+              <% if @review.persisted? %>
+                <h4>Edit Your Review</h4>
+                <%= form_with(model: [@booking, @review], local: true, method: :patch) do |f| %>
+                  <div class="form-group">
+                    <%= f.label :rating, "Rating (out of 5)" %>
+                    <%= f.select :rating, options_for_select((1..5).map { |n| [pluralize(n, "star"), n] }, @review.rating), {}, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :comment %>
+                    <%= f.text_area :comment, class: 'form-control', rows: 3 %>
+                  </div>
+                  <div class="form-group mt-4">
+                    <%= f.submit 'Update Review', class: 'btn btn-primary btn-block' %>
+                  </div>
+                <% end %>
+              <% else %>
+                <h4>Leave a Review</h4>
+                <%= form_with(model: [@booking, @review], local: true) do |f| %>
+                  <div class="form-group">
+                    <%= f.label :rating, "Rating (out of 5)" %>
+                    <%= f.select :rating, options_for_select((1..5).map { |n| [pluralize(n, "star"), n] }), {}, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :comment %>
+                    <%= f.text_area :comment, class: 'form-control', rows: 3 %>
+                  </div>
+                  <div class="form-group mt-4">
+                    <%= f.submit 'Submit Review', class: 'btn btn-primary btn-block' %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

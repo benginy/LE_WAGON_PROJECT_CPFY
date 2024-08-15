@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
   def show
+    set_booking
+    @review = Review.new
+    @role = determine_role
+    p "---------------"
+    p @role
+    p "---------------"
+
   end
 
   def create
@@ -20,17 +24,33 @@ class BookingsController < ApplicationController
   end
 
   def update
+    set_booking
     @booking.update(booking_params)
     redirect_to dashboard_path, notice: 'Booking updated successfully'
   end
 
   def accept
+    set_booking
+    @booking.status = :accepted
+    if @booking.save
+      redirect_to dashboard_path, notice: 'Booking accepted'
+    else
+      redirect_to dashboard_path, notice: 'Unable to update Booking status'
+    end
   end
 
   def decline
+    set_booking
+    @booking.status = :rejected
+    if @booking.save
+      redirect_to dashboard_path, notice: 'Booking rejected'
+    else
+      redirect_to dashboard_path, notice: 'Unable to update Booking status'
+    end
   end
 
   def destroy
+    set_booking
     @booking.destroy
     redirect_to dashboard_path, alert: 'Booking deleted successfully'
   end
@@ -42,6 +62,17 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking
+    @booking = Booking.find(params[:id])
   end
+
+  def determine_role
+    if current_user == @booking.user
+      'buyer'
+    elsif current_user == @booking.life_moment.user
+      'seller'
+    else
+      'unauthorized'
+    end
+  end
+
 end

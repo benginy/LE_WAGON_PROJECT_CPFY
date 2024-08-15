@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,6 +14,11 @@ Rails.application.routes.draw do
 
   # Life Moments + booker un life moment
   resources :life_moments do
+    # Activate Deactive Logic
+    member do
+      patch :activate
+      patch :deactivate
+    end
     # Booker un life moment (life_moments/:id/booking)
     resources :bookings, only: [:create]
   end
@@ -23,7 +30,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :decline
     end
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews, only: [:new, :create, :update, :destroy]
   end
 
   # Route pour dashboard

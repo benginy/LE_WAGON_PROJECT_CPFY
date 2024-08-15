@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :life_moments
   has_many :bookings
-  has_many :reviews, through: :bookings
+  has_many :reviews, through: :life_moments
 
 
     # Validations

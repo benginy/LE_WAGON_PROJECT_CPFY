@@ -1,6 +1,4 @@
 <div class="container mt-5 life-moment-show-page">
-
-
   <div class="row">
     <!-- Left side: Life Moment Card (2/3 of the page) -->
     <div class="col-md-8">
@@ -8,8 +6,27 @@
         <%= image_tag @life_moment.photo.url, class: 'card-life-show-img' %>
         <div class="card-life-show-infos">
           <h2><%= @life_moment.title %></h2>
+
+          <!-- Status Label -->
+          <% if @life_moment.active? %>
+            <span class="badge bg-success text-dark">Active Listing</span> <!-- Dark text on a green background -->
+          <% else %>
+            <span class="badge bg-danger text-dark">Inactive Listing</span> <!-- Dark text on a red background -->
+          <% end %>
+
+
           <p><%= @life_moment.description %></p>
           <h3><%= number_to_currency(@life_moment.price_per_night) %> per night</h3>
+
+          <!-- Edit Button if User is Owner -->
+          <% if current_user == @life_moment.user %>
+            <%= link_to 'Edit Life Moment', edit_life_moment_path(@life_moment), class: 'btn btn-secondary mt-3' %>
+            <% if @life_moment.active? %>
+              <%= link_to 'Deactivate Listing', deactivate_life_moment_path(@life_moment), data: { turbo_method: :patch }, class: 'btn btn-danger mt-3' %>
+            <% else %>
+              <%= link_to 'Reactivate Listing', activate_life_moment_path(@life_moment), data: { turbo_method: :patch }, class: 'btn btn-success mt-3' %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
