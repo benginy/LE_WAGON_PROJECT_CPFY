@@ -1,0 +1,50 @@
+.index-search-bar {
+  background-color: #f0f0f0; /* Background for the whole bar */
+  padding: 16px; /* Padding around the content */
+  border-bottom: 1px solid #dcdcdc; /* Border at the bottom of the search bar */
+}
+
+.index-search-bar .search-container {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners for the container */
+  padding: 10px; /* Add some padding inside the container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation effect */
+}
+
+.index-search-bar .search-form .form-group {
+  display: flex;
+  align-items: center;
+}
+
+.index-search-bar .search-form .form-group:not(:last-child) {
+  border-right: 1px solid #dcdcdc; /* Border between inputs */
+}
+
+.index-search-bar .form-control {
+  border-radius: 0; /* Remove rounded borders from inputs */
+  border: none; /* Remove border from inputs */
+  background-color: #ffffff; /* White background for inputs */
+  box-shadow: none; /* Remove any default shadow */
+}
+
+.index-search-bar .input-rounded::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.index-search-bar .btn-search {
+  background-color: #FF5A5F; /* Airbnb red color */
+  color: #ffffff; /* White icon color */
+  border-radius: 50%; /* Make the button round */
+  width: 40px; /* Set width and height for the round button */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none; /* Remove any default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Size of the icon */
+}
+
+.index-search-bar .btn-search i {
+  margin: 0; /* Ensure no margins are affecting the icon's position */
+}

@@ -1,23 +1,27 @@
-<div class="d-flex justify-content-center p-4" style="border-bottom: 1px solid #dcdcdc; background-color: #f0f0f0;">
-  <div class="mt-4">
-    <%= simple_form_for :search, url: life_moments_path, method: :get, html: { class: "form-inline d-flex" } do |f| %>
-      <!-- Keyword Input -->
-      <div class="form-group mr-4 m-1">
-        <%= text_field_tag :query, params[:query], class: "form-control form-control-sm", placeholder: "Keyword", aria: { label: "Keyword" } %>
-      </div>
+<div class="index-search-bar">
+  <div class="d-flex justify-content-center p-4" style="background-color: #f0f0f0;">
+    <div class="mt-4 search-container">
+      <%= simple_form_for :search, url: life_moments_path, method: :get, html: { class: "form-inline d-flex search-form" } do |f| %>
+        <!-- Keyword Input -->
+        <div class="form-group m-1">
+          <%= text_field_tag :query, params[:query], class: "form-control form-control-sm input-rounded", placeholder: "Keyword", aria: { label: "Keyword" } %>
+        </div>
 
-      <!-- Date Inputs -->
-      <div class="form-group mr-2 m-1">
-        <%= f.date_field :check_in_date, class: 'form-control form-control-sm', placeholder: "Check-in Date" %>
-      </div>
-      <div class="form-group mr-2 m-1">
-        <%= f.date_field :check_out_date, class: 'form-control form-control-sm', placeholder: "Check-out Date" %>
-      </div>
+        <!-- Date Inputs -->
+        <div class="form-group m-1">
+          <%= f.date_field :check_in_date, class: 'form-control form-control-sm', placeholder: "Check-in Date" %>
+        </div>
+        <div class="form-group m-1">
+          <%= f.date_field :check_out_date, class: 'form-control form-control-sm', placeholder: "Check-out Date" %>
+        </div>
 
-      <!-- Search Button -->
-      <div class="form-group mr-2 m-1">
-        <%= f.submit "Search", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+        <!-- Search Button -->
+        <div class="form-group m-1">
+          <button type="submit" class="btn btn-search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
