@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Review.delete_all
+Booking.delete_all
+LifeMoment.delete_all
+User.delete_all
+
 # Life MOMENT 1 : Cat in Delhi
 cat_image_url = "https://res.cloudinary.com/dnrfsvgnj/image/upload/v1723735571/development/rq7kj597wkk3sqa7a9a5sezcvo4d.jpg"
 
