@@ -21,22 +21,38 @@
 <div class="main-navbar">
   <nav class="navbar navbar-expand-lg navbar-light p-2 ps-4 pe-4">
     <div class="container">
-      <!-- Navbar Content -->
-      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
-        <!-- Brand Logo -->
-        <a class="navbar-brand" href="<%= life_moments_path %>">
-          <%= image_tag 'logo.png', alt: "Silly Life Adventures CORP", style: "height: 70px;" %>
-        </a>
+      <!-- Brand Logo -->
+      <a class="navbar-brand" href="<%= life_moments_path %>">
+        <%= image_tag 'logo.png', alt: "Silly Life Adventures CORP", style: "height: 70px;" %>
+      </a>
 
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
+      <!-- Links and User Space -->
+      <div class="d-flex justify-content-end align-items-center w-100">
+        <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
           <% if user_signed_in? %>
             <!-- Dashboard Link -->
             <li class="nav-item">
-              <strong><%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %></strong>
+              <strong><%= link_to dashboard_path, class: 'nav-link d-flex align-items-center' do %>
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+              <% end %></strong>
             </li>
+            <!-- Publish Moment Link -->
             <li class="nav-item">
-              <strong><%= link_to 'Publish Moment', new_life_moment_path, class: 'nav-link' %></strong>
+              <strong><%= link_to new_life_moment_path, class: 'nav-link d-flex align-items-center' do %>
+                <i class="fas fa-plus-circle me-2"></i> Publish Moment
+              <% end %></strong>
+            </li>
+            <!-- Profile Link -->
+            <li class="nav-item">
+              <strong><%= link_to edit_user_registration_path, class: 'nav-link d-flex align-items-center' do %>
+                <i class="fas fa-user me-2"></i> Profile
+              <% end %></strong>
+            </li>
+            <!-- Log Out Link -->
+            <li class="nav-item">
+              <strong><%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link d-flex align-items-center btn btn-danger' do %>
+                <i class="fas fa-sign-out-alt me-2"></i> Log out
+              <% end %></strong>
             </li>
           <% else %>
             <!-- Sign In and Sign Up Links -->
@@ -49,27 +65,10 @@
           <% end %>
         </ul>
       </div>
-
-      <!-- User Space -->
-      <div class="user-space m-3">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <!-- Welcome Message -->
-            <li class="nav-item">
-              <strong><%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-secondary nav-link' %></strong>
-            </li>
-            <!-- Disconnect Link -->
-            <li class="nav-item">
-            <strong><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}, class: 'btn btn-danger nav-link' %></strong>
-            </li>
-          <% else %>
-            <!-- If not signed in, links are shown above in the nav section -->
-          <% end %>
-        </ul>
-      </div>
     </div>
   </nav>
 </div>
+
 
 
 

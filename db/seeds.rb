@@ -10,4 +10,4 @@
 
 
 
-life_moment_1 = LifeMoment.new()
+# life_moment_1 = LifeMoment.new()

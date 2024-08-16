@@ -1,7 +1,7 @@
   <!-- Search Bar Partial -->
   <%= render 'search_bar' %>
 
-  <!-- List Section -->
+<!-- List Section -->
 <div class="container mt-5">
   <h5>Rent the Life Moment You've Always Dreamed Of</h5>
   <div class="row">
@@ -21,7 +21,12 @@
               <h2 class="card-life-moment-pricing">
                 <%= number_to_currency(life_moment.price_per_night, unit: '$') %> per night
               </h2>
-              <%= cl_image_tag 'placeholder-avatar.png', class: 'card-life-moment-user avatar-bordered' %> <!-- Placeholder for user image -->
+              <% if life_moment.average_rating %>
+                <div class="card-life-moment-rating">
+                  <i class="fas fa-star"></i>
+                  <%= life_moment.average_rating %>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>

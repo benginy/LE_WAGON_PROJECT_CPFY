@@ -1,0 +1,20 @@
+.edit-user-container {
+  max-width: 600px; /* Set a maximum width for the form container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Optional padding for better spacing */
+  background-color: #f9f9f9; /* Optional: Set a background color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.text-center {
+  text-align: center; /* Center the text for the heading */
+}
+
+.form-actions {
+  text-align: center; /* Center the submit button */
+}
+
+form .form-inputs {
+  margin-bottom: 20px; /* Add some space between the inputs and actions */
+}

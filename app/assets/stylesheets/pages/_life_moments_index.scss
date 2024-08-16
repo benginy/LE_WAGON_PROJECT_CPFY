@@ -16,8 +16,9 @@
 
 .card-life-moment-img {
   height: 200px;
-  width: 100%;
-  object-fit: cover; /* Adjusts the image size to fit the container */
+  width: 100%; /* Adjusts the image size to fit the container */
+  object-fit: cover; /* Ensures the image covers the container */
+  object-position: center;
 }
 
 .card-life-moment h2 {
@@ -57,4 +58,19 @@
   font-size: 16px;
   font-weight: bold;
   color: #333; /* Pricing text color */
+}
+
+.card-life-moment .card-life-moment-rating {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  color: #333; /* Rating text color */
+  font-weight: bold;
+}
+
+.card-life-moment .card-life-moment-rating i {
+  color: #FFD700; /* Gold color for the star */
+  margin-right: 5px;
 }

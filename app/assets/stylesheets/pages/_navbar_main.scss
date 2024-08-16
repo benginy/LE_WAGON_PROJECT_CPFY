@@ -1,6 +1,50 @@
 .main-navbar {
   .navbar {
-    background-color: #cbf3f0;
-    border-bottom: 1px solid #dcdcdc;
+    background-color: #dddf00; /* Background color */
+    border-bottom: 1px solid #dcdcdc; /* Bottom border */
+    height: 120px
+  }
+
+  .navbar-nav .nav-link {
+    color: #333333; /* Default link color */
+    font-weight: bold; /* Bold text */
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #FF0076; /* Hover color */
+  }
+
+  .navbar-nav .nav-link i {
+    font-size: 18px; /* Icon size */
+  }
+
+  .btn-primary {
+    background-color: FF5A5F; /* Airbnb red */
+    border-color: #FF5A5F;
+    color: #ffffff; /* White text */
+  }
+
+  .btn-secondary {
+    background-color: #00A699; /* Teal color */
+    border-color: #00A699;
+    color: #ffffff; /* White text */
+  }
+
+  .btn-danger {
+    background-color: #D9534F; /* Red color */
+    border-color: #D9534F;
+    color: #ffffff; /* White text */
+  }
+
+  .navbar-nav {
+    margin-left: auto; /* Pushes the links to the right */
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 20px; /* Adds space between nav items */
+  }
+
+  .navbar-nav .btn-danger {
+    margin-right: 0; /* Ensure no extra margin on the right of Log out */
   }
 }

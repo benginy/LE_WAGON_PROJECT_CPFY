@@ -1,0 +1,40 @@
+/* Container for the form */
+.form-new-moment {
+
+  .form-container {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px; /* Padding inside the form container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like effect */
+  }
+
+  /* Form Labels */
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Dark color for labels */
+  }
+
+  /* Input Fields */
+  .form-control {
+    margin-bottom: 20px; /* Space between input fields */
+    border-radius: 5px; /* Slightly rounded corners for inputs */
+    border: 1px solid #ccc; /* Light gray border for inputs */
+    padding: 10px; /* Padding inside input fields */
+  }
+
+  /* Submit Button */
+  .btn-primary {
+    background-color: #FF5A5F; /* Airbnb red for the button */
+    border-color: #FF5A5F;
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners for the button */
+    font-size: 16px; /* Slightly larger font size */
+  }
+
+  .btn-primary:hover {
+    background-color: #e14c4f; /* Slightly darker red on hover */
+    border-color: #e14c4f;
+  }
+}

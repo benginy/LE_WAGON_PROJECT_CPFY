@@ -8,6 +8,14 @@ class LifeMomentsController < ApplicationController
     else
       @life_moments = LifeMoment.where(status: :active)
     end
+
+    # Calculate rating for each life_moment (cannot use set_rating here, it doesn't take a parameter and no time to change it)
+    @life_moments.each do |life_moment|
+      ratings = life_moment.bookings.joins(:review).pluck('reviews.rating')
+      life_moment.define_singleton_method(:average_rating) do
+        ratings.any? ? (ratings.sum.to_f / ratings.size).round(1) : nil
+        end
+      end
   end
 
   def show

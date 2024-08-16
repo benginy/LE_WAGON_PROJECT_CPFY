@@ -1,14 +1,16 @@
 .index-search-bar {
   background-color: #f0f0f0; /* Background for the whole bar */
-  padding: 16px; /* Padding around the content */
+  padding: 12px; /* Decrease padding around the content */
   border-bottom: 1px solid #dcdcdc; /* Border at the bottom of the search bar */
 }
 
 .index-search-bar .search-container {
   background-color: #ffffff; /* White background */
   border-radius: 8px; /* Rounded corners for the container */
-  padding: 10px; /* Add some padding inside the container */
+  padding: 8px; /* Decrease padding inside the container */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation effect */
+  max-width: 900px; /* Set a max width for the container */
+  margin: 0 auto; /* Center the container */
 }
 
 .index-search-bar .search-form .form-group {
