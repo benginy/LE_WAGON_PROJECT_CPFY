@@ -307,3 +307,59 @@ life_moment10.photo.attach(
   content_type: 'image/jpg'
 )
 life_moment10.save!
+
+
+
+# Life MOMENT 11 : Edimburgh
+
+user6 = User.create!(email: "user6@gmail.com", username: "user6", password: "password")
+
+cloudinary_image_11 = "https://res.cloudinary.com/dnrfsvgnj/image/upload/v1723644845/development/xmugepxx3m6xy59vcqapb38v1min.jpg"
+
+life_moment11 = LifeMoment.new(
+  user: user6,
+  title: "Random person from Edinburgh",
+  price_per_night: 1700,
+  description: "very random."
+)
+
+if life_moment11.valid?
+  life_moment11.save!
+  puts "LifeMoment created: #{life_moment11.persisted?}"
+else
+  puts "LifeMoment invalid: #{life_moment11.errors.full_messages.join(', ')}"
+end
+
+life_moment11.photo.attach(
+  io: URI.open(cloudinary_image_11),
+  filename: 'edimbourgh.jpg',
+  content_type: 'image/jpg'
+)
+life_moment11.save!
+
+
+
+# Life MOMENT 12 : Office
+
+cloudinary_image_12 = "https://res.cloudinary.com/dnrfsvgnj/image/upload/v1723647460/development/jupbzhgol4oqtt71875hj0qzj9n6.jpg"
+
+life_moment12 = LifeMoment.new(
+  user: user6,
+  title: "Boring day at the office!",
+  price_per_night: 1200,
+  description: "Spend time working at an open office. Random job! A lot of boring work guaranteed or get your money back!"
+)
+
+if life_moment12.valid?
+  life_moment12.save!
+  puts "LifeMoment created: #{life_moment12.persisted?}"
+else
+  puts "LifeMoment invalid: #{life_moment12.errors.full_messages.join(', ')}"
+end
+
+life_moment12.photo.attach(
+  io: URI.open(cloudinary_image_12),
+  filename: 'edimbourgh.jpg',
+  content_type: 'image/jpg'
+)
+life_moment12.save!
