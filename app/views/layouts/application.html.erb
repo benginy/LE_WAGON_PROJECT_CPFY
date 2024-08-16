@@ -21,10 +21,15 @@
 <div class="main-navbar">
   <nav class="navbar navbar-expand-lg navbar-light p-2 ps-4 pe-4">
     <div class="container">
-      <!-- Brand Logo -->
-      <a class="navbar-brand" href="<%= life_moments_path %>">
-        <%= image_tag 'logo.png', alt: "Silly Life Adventures CORP", style: "height: 70px;" %>
-      </a>
+      <!-- Brand Logo and Tagline -->
+      <div class="d-flex flex-column align-items-center">
+        <a class="navbar-brand" href="<%= life_moments_path %>">
+          <%= image_tag 'logo.png', alt: "Silly Life Adventures CORP", style: "height: 70px;" %>
+        </a>
+        <span class="navbar-tagline">
+          You're not that guy pal. But <span class="underline-text">you can be</span>.
+        </span>
+      </div>
 
       <!-- Links and User Space -->
       <div class="d-flex justify-content-end align-items-center w-100">
@@ -68,6 +73,7 @@
     </div>
   </nav>
 </div>
+
 
 
 

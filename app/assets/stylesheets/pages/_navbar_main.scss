@@ -2,7 +2,8 @@
   .navbar {
     background-color: #dddf00; /* Background color */
     border-bottom: 1px solid #dcdcdc; /* Bottom border */
-    height: 120px
+    height: 130px;
+    padding: 1;
   }
 
   .navbar-nav .nav-link {
@@ -47,4 +48,20 @@
   .navbar-nav .btn-danger {
     margin-right: 0; /* Ensure no extra margin on the right of Log out */
   }
+
+  .navbar-tagline {
+    color: white; /* White color for the text */
+    font-weight: bold; /* Bold text */
+    font-size: 16px; /* Adjust font size if needed */
+    margin-top: 5px; /* Add a little space between the logo and the text */
+    text-align: center; /* Center the text */
+    width: 100%; /* Make the text span the full width of the logo */
+  }
+
+  .underline-text {
+    text-decoration: underline; /* Underline the specific text */
+  }
+
+
+
 }
